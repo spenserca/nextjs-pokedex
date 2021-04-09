@@ -1,5 +1,6 @@
 import Pokemon from '../../src/Pokemon';
 import makeApiCall from '../../src/pokeApiService';
+import { GetStaticProps } from 'next';
 
 export default function Bulbasaur({ pokemon }: any) {
   return (
@@ -10,7 +11,7 @@ export default function Bulbasaur({ pokemon }: any) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await makeApiCall('bulbasaur');
   const pokemon = await res.json();
 
@@ -19,4 +20,4 @@ export async function getStaticProps() {
       pokemon
     }
   };
-}
+};

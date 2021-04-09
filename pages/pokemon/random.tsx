@@ -2,6 +2,7 @@ import Pokemon from '../../src/Pokemon';
 import { Chance } from 'chance';
 import getPokemonIds from '../../src/idGenerator';
 import makeApiCall from '../../src/pokeApiService';
+import { GetServerSideProps } from 'next';
 
 export default function Random({ pokemon }: any) {
   return (
@@ -12,7 +13,7 @@ export default function Random({ pokemon }: any) {
   );
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const chance = new Chance();
   const ids = await getPokemonIds();
   const id = chance.pickone(ids);
@@ -24,4 +25,4 @@ export async function getServerSideProps() {
       pokemon
     }
   };
-}
+};
