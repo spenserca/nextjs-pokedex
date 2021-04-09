@@ -1,16 +1,17 @@
 import Pokemon from "../../src/Pokemon";
+import makeApiCall from "../../src/pokeApiService";
 
 export default function Bulbasaur({pokemon}: any) {
     return (
         <div>
             <h2>This was rendered with getStaticProps</h2>
-            <Pokemon pokemon={pokemon} />
+            <Pokemon pokemon={pokemon}/>
         </div>
     )
 }
 
 export async function getStaticProps() {
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur');
+    const res = await makeApiCall('bulbasaur');
     const pokemon = await res.json();
 
     return {

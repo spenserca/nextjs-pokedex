@@ -1,5 +1,6 @@
 import Pokemon from "../../src/Pokemon";
 import getPokemonIds from "../../src/idGenerator";
+import makeApiCall from "../../src/pokeApiService";
 
 export default function DynamicPokemon({pokemon}: any) {
     return (
@@ -11,7 +12,7 @@ export default function DynamicPokemon({pokemon}: any) {
 }
 
 export async function getStaticProps({params}: any) {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`);
+    const res = await makeApiCall(params.id);
     const pokemon = await res.json();
 
     return {
