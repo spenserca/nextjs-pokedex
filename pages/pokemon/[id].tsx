@@ -11,7 +11,6 @@ export default function DynamicPokemon({pokemon}: any) {
 }
 
 export async function getStaticProps({params}: any) {
-    console.log(`calling pokemon api for bulbasaur @ ${new Date().toISOString()}`);
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`);
     const pokemon = await res.json();
 
