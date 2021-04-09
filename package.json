@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "prettier --check src/**/*.ts pages/**/*.tsx",
+    "format": "prettier --write src/**/*.ts pages/**/*.tsx"
   },
   "dependencies": {
     "chance": "^1.1.7",
@@ -16,6 +18,14 @@
   "devDependencies": {
     "@types/chance": "^1.1.1",
     "@types/react": "^17.0.3",
+    "prettier": "^2.2.1",
     "typescript": "^4.2.4"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "jsxSingleQuote": true,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }
