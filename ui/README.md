@@ -1,11 +1,5 @@
 # nextjs-pokedex
 
-## todo:
-
-- look into next-auth
-- look into passportjs
-- deploy to azure
-
 ## Getting Started
 
 First, run the development server:
