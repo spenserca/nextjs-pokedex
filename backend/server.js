@@ -6,20 +6,20 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 const typeDefs = gql`
   type Query {
-    hello: String
+    time: String
     pokemon(pokemonId: ID!): Pokemon
   }
   
   type Pokemon {
     id: ID!
     name: String
-    baseExperience: Int
+    base_experience: Int
   }
 `;
 
 const resolvers = {
   Query: {
-    hello: () => 'Hello world!',
+    time: () => new Date().toISOString(),
     pokemon: async (parent, args, context, info) => await fetchPokemon(args.pokemonId)
   },
 };
